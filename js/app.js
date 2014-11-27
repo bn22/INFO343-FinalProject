@@ -2,10 +2,46 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
+
+    $('body').scrollspy({ target: '.navbar-custom' })
+
+    $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this).scrollspy('refresh')
+    })
+
+
     $('#fullpage').fullpage({
-
     });
+        var mapElem = document.getElementById('map');
 
+
+    function createMap(elem, center, zoom){
+        var map =new google.maps.Map(elem,{
+            center: center,
+            zoom: zoom,
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        });
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map,
+            animation : google.maps.Animation.DROP
+        });
+
+        var infoWindow = new  google.maps.InfoWindow();
+        infoWindow.setContent("<h2>Here I am!</h2><p>Don't you wish you were here.</p>")
+
+        google.maps.event.addListener(marker, 'click', function(){
+            infoWindow.open(map, marker);
+        });
+
+    }
+
+    var center ={
+        lat:47.655,
+        lng: -122.3080
+    };
+
+ createMap(mapElem, center, 14);
 });
 
 //

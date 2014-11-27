@@ -8,6 +8,7 @@ body {
     font-weight: 300;
     /*color: #666;*/
     background-color: #fff;
+    position: relative;
 }
 
 h1,
@@ -26,6 +27,10 @@ h6 {
 
 .navbar{
     opacity: 0.9;
+}
+
+.section{
+
 }
 
 
@@ -55,4 +60,9 @@ h6 {
 #sectionA h2{
     color: #fff;
     text-shadow: -1px 1px 1px #000;
+}
+
+#map {
+    padding: 20%;
+    vertical-align: middle;
 }
