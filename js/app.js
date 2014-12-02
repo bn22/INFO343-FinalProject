@@ -27,6 +27,7 @@ $(document).ready(function() {
 
 //    $(document).ready(function() {
 //        $('#fullpage').fullpage();
+//
 //    });
 
     var map;
@@ -163,10 +164,11 @@ $(document).ready(function() {
     $('#fullpage').fullpage({
         //Navigation
         menu: false,
-       // anchors:['firstSlide', 'secondSlide'],
+        anchors:['1', '2','3','4'],
+//        menu: '#myMenu',
         navigation: false,
         navigationPosition: 'right',
-       // navigationTooltips: ['firstSlide', 'secondSlide'],
+        navigationTooltips: ['firstSlide', 'secondSlide'],
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
 
@@ -193,7 +195,7 @@ $(document).ready(function() {
         //Design
         verticalCentered: true,
         resize : true,
-       sectionsColor : ['#393939', '#393939','#393939','#393939'],
+        sectionsColor : ['#393939', '#393939','#393939','#393939'],
         paddingTop: '3em',
         paddingBottom: '10px',
         fixedElements: '#header, .footer',

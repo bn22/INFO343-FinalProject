@@ -22,20 +22,19 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<a class="navbar-brand" href="#">FinalProject</a>-->
-            <a class="navbar-brand" href="#sectionA">Home</a>
+            <a class="navbar-brand" data-menuanchor="1" href="#sectionA">Home</a>
 
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav" role="tablist">
-
-                <li><a href="#MapSection">Calculate Emission</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contactUs">Contact Us</a></li>
+            <ul class="nav navbar-nav" role="tablist" id="myMenu">
+                <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
+                <li data-menuanchor="3"><a href="#about">About Us</a></li>
+                <li data-menuanchor="4"><a href="#contactUs">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
-                      Sign Up <span class="caret"></span></a>
+                        Sign Up <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <!--<li id="signUp"><a href="#">Sign Up</a></li>-->
                         <li>
@@ -66,11 +65,11 @@
 
 
 <div id="fullpage">
-    <div class="section" id="sectionA">
+    <div class="section" id="sectionA" data-anchor="1">
         <h1>Hello World</h1>
         <h2>Calculate your carbon footprint</h2>
     </div>
-    <div class="section" id="MapSection">
+    <div class="section" id="mappart" data-anchor="2">
         <h1>Calculate Emission</h1>
         <div id="map"></div>
         <div class="emission-form">
@@ -89,9 +88,10 @@
             <div id="emissions"></div>
         </div>
     </div>
-    <div class="section sectionB">
+    <div class="section sectionB" id="about" data-anchor="3">
 
-        <div class="slide" id="aboutSlide">
+
+        <div class="slide" id="aboutSlide" data-anchor="slide1">
             <h1>About us</h1>
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
             <h1>Mission</h1><p> Raise awareness of carbon emission and what we can do to reduce it.<br>
@@ -99,7 +99,7 @@
             <br/>
         </div>
 
-        <div class="slide">
+        <div class="slide" data-anchor="slide2">
             <h1>Why worry about carbon emission?</h1>
             <br/>
             <li>Is the primary greenhouse gas emitted through human activities</li>
@@ -108,7 +108,7 @@
             <br/>
         </div>
 
-        <div class="slide">
+        <div class="slide" data-anchor="slide3">
             <h1>Why worry about carbon emission from transportation?</h1>
             <br/>
             <li>Transportation accounts for 32% of total U.S. emissions</li>
@@ -132,3 +132,4 @@
 
 </body>
 </html>
+

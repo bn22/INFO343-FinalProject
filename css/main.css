@@ -29,6 +29,9 @@ h6 {
     opacity: 0.9;
 }
 
+#MapSection{
+    color:#fff;
+}
 
 #form {
     padding-left: 1em;
@@ -63,7 +66,7 @@ h6 {
 
 
 
-#sectionA h1, #aboutSlide h1{
+#sectionA h1, #aboutSlide h1, #MapSection h1 {
     color: #FFF;
     text-shadow: none;
     font-size: 60px;
