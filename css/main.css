@@ -29,18 +29,21 @@ h6 {
     opacity: 0.9;
 }
 
-.section{
-
-}
-
 #sectionA {
-    background:url("../img/bg1.jpg") center top no-repeat;
+    background:url(../img/bg1.jpg)center top no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
 }
 
-#sectionA h1{
+.sectionB{
+    background:url(../img/slide.jpg)center top no-repeat;
+    /*background: #23527c;*/
+    text-align: center;
+    font-size: 150%;
+}
+
+#sectionA h1, #aboutSlide h1{
     color: #FFF;
     text-shadow: none;
     font-size: 60px;
@@ -72,6 +75,3 @@ h6 {
     margin-bottom: 1em;
 }
 
-#about{
-    text-align: center;
-}
