@@ -161,6 +161,7 @@ $(document).ready(function() {
 
 //
 //$(document).ready(function() {
+
     $('#fullpage').fullpage({
         //Navigation
         menu: false,
@@ -212,4 +213,5 @@ $(document).ready(function() {
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
         onSlideLeave: function(anchorLink, index, slideIndex, direction){}
     });
+
 //});
