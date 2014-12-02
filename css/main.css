@@ -42,6 +42,16 @@ h6 {
     text-align: center;
     font-size: 150%;
 }
+.slide{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.sectionB p {
+    color: #eee;
+}
+
+
 
 #sectionA h1, #aboutSlide h1{
     color: #FFF;
