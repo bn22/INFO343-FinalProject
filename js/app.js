@@ -2,10 +2,6 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
-    $('#signUp').click(function() {
-        alert('it works');
-    });
-
     $('#login').click(function() {
         alert('it works');
     });
@@ -25,8 +21,8 @@ $(document).ready(function() {
     var geocoder;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
-//    var addr1 = 'University of Washington, Seattle, WA';
-//    var addr2 = "Seattle University, Seattle, WA";
+//  var addr1 = 'University of Washington, Seattle, WA';
+//  var addr2 = "Seattle University, Seattle, WA";
     var addr1;
     var addr2;
     var mode;
