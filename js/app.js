@@ -165,7 +165,6 @@ $(document).ready(function() {
         //Navigation
         menu: false,
         anchors:['1', '2','3','4'],
-//        menu: '#myMenu',
         navigation: false,
         navigationPosition: 'right',
         navigationTooltips: ['firstSlide', 'secondSlide'],
@@ -194,7 +193,7 @@ $(document).ready(function() {
 
         //Design
         verticalCentered: true,
-        resize : true,
+        resize : false,
         sectionsColor : ['#393939', '#393939','#393939','#393939'],
         paddingTop: '3em',
         paddingBottom: '10px',

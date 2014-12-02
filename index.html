@@ -22,14 +22,15 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<a class="navbar-brand" href="#">FinalProject</a>-->
-            <a class="navbar-brand" data-menuanchor="1" href="#sectionA">Home</a>
+            <a href="#sectionA" class="navbar-brand" data-menuanchor="1" >Home</a>
 
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav" role="tablist" id="myMenu">
                 <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
                 <li data-menuanchor="3"><a href="#about">About Us</a></li>
-                <li data-menuanchor="4"><a href="#contactUs">Contact Us</a></li>
+                <li data-menuanchor="4"><a href="#tips">Green Tips</a></li>
+                <li data-menuanchor="5"><a href="#contactUs">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -65,10 +66,14 @@
 
 
 <div id="fullpage">
+
+    <!--the home section-->
     <div class="section" id="sectionA" data-anchor="1">
         <h1>Hello World</h1>
         <h2>Calculate your carbon footprint</h2>
     </div>
+
+    <!--the map section-->
     <div class="section" id="mappart" data-anchor="2">
         <h1>Calculate Emission</h1>
         <div id="map"></div>
@@ -88,9 +93,9 @@
             <div id="emissions"></div>
         </div>
     </div>
+
+    <!--about us section-->
     <div class="section sectionB" id="about" data-anchor="3">
-
-
         <div class="slide" id="aboutSlide" data-anchor="slide1">
             <h1>About us</h1>
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
@@ -103,7 +108,9 @@
             <h1>Why worry about carbon emission?</h1>
             <br/>
             <li>Is the primary greenhouse gas emitted through human activities</li>
+            <br/>
             <li> Traps heat into the atmosphere</li>
+            <br/>
             <li>Alters local climate temperatures which affects forests, crop yields, and water supplies</li>
             <br/>
         </div>
@@ -112,13 +119,58 @@
             <h1>Why worry about carbon emission from transportation?</h1>
             <br/>
             <li>Transportation accounts for 32% of total U.S. emissions</li>
+            <br/>
             <li> Amount of CO2 that one gallon of gas produces: 19.4 pounds</li>
+            <br/>
             <li>The number of vehicle miles traveled by passenger cars has increased by 35% from 1990-2012</li>
+            <br/>
             <li>The average passenger car in the United States produces just under 1 pound of carbon dioxide per mile traveled.</li>
         </div>
 
     </div>
+    <!--Tips section -->
+    <div class="section" id="tips">
+        <h1>Green Tips</h1>
+        <h2>Tips to Make Commuting more Eco-Friendly</h2>
+        <br/>
+        <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-4">
+                     <img src="img/icons/bike.png" alt="Bike"/>
+                     <h4>Biking</h4>
+                 </div>
+                 <div class="col-md-4">
+                     <img src="img/icons/cart.png" alt="cart"/>
+                     <h4>Weekend Shopping</h4>
+                 </div>
+                 <div class="col-md-4">
+                     <img src="img/icons/bus.png" alt="bus"/>
+                     <h4>Bus & Carpool</h4>
+                 </div>
+             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/icons/car.png" alt="car"/>
+                    <h4>If you own a car:</h4>
+                    <p>
+                    Invest in a low CO2 emission car – diesel engines & electric hybrid vehicles
+                    Maintain your car properly and keep to the speed limit to ensure fuel efficiency
+                    If you wait longer than 30 seconds, turn off the car engine
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/icons/flight.png" alt="flight"/>
+                    <h4>Reduce flights</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Contacts Us section-->
     <div class="section" id="contactUs">Contact Us</div>
+
 </div>
 
 <script src="js/bootstrap.js"></script>
@@ -127,8 +179,6 @@
 <script src="http://www.parsecdn.com/js/parse-1.3.2.min.js"></script>
 <script>Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");</script>
 <script src="js/app.js"></script>
-
-
 
 </body>
 </html>
