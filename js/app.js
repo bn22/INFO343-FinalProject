@@ -2,8 +2,20 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
-    $('#login').click(function() {
-        alert('it works');
+    $('#submit').click(function() {
+        var carbonEmission = Parse.Object.extend("CO2Emissions");
+        var CO2 =new carbonEmission();
+        CO2.set("Username", $('#username').val()) ;
+        CO2.set("Password", $('#password').val());
+        CO2.set("Email", $('#email').val());
+        CO2.save(null, {
+            success: function() {
+                alert('it works!');
+            },
+            error: function(CO2, error) {
+                console.log(error.message);
+            }
+        });
     });
 
     $('body').scrollspy({ target: '.navbar-custom' });
