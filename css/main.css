@@ -98,3 +98,6 @@ h6 {
     margin-bottom: 1em;
 }
 
+#logout {
+    display: none;
+}
