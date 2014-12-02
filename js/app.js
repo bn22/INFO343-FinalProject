@@ -5,14 +5,15 @@ $(document).ready(function() {
 
     $('body').scrollspy({ target: '.navbar-custom' });
 
+
     $('[data-spy="scroll"]').each(function () {
         var $spy = $(this).scrollspy('refresh')
     });
 
 
     $('#fullpage').fullpage({
+        sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
     });
-
     var map;
     var geocoder;
     var directionsDisplay;
