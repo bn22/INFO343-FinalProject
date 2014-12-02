@@ -29,6 +29,16 @@ h6 {
     opacity: 0.9;
 }
 
+
+#form {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#submit {
+    margin-top: 0.5em;
+}
+
 #sectionA {
     background:url(../img/bg1.jpg)center top no-repeat;
     background-size: cover;

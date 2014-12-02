@@ -2,6 +2,13 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
+    $('#signUp').click(function() {
+        alert('it works');
+    });
+
+    $('#login').click(function() {
+        alert('it works');
+    });
 
     $('body').scrollspy({ target: '.navbar-custom' });
 
