@@ -2,6 +2,21 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
+    $('#submit').click(function() {
+        var carbonEmission = Parse.Object.extend("CO2Emissions");
+        var CO2 =new carbonEmission();
+        CO2.set("Username", $('#username').val()) ;
+        CO2.set("Password", $('#password').val());
+        CO2.set("Email", $('#email').val());
+        CO2.save(null, {
+            success: function() {
+                alert('it works!');
+            },
+            error: function(CO2, error) {
+                console.log(error.message);
+            }
+        });
+    });
 
     $('body').scrollspy({ target: '.navbar-custom' });
 
@@ -12,14 +27,17 @@ $(document).ready(function() {
 
 //    $(document).ready(function() {
 //        $('#fullpage').fullpage();
+//
 //    });
 
     var map;
     var geocoder;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
-    var addr1 = 'University of Washington, Seattle, WA';
-    var addr2 = "Seattle University, Seattle, WA";
+//  var addr1 = 'University of Washington, Seattle, WA';
+//  var addr2 = "Seattle University, Seattle, WA";
+    var addr1;
+    var addr2;
     var mode;
     var mapElem = document.getElementById('map');
     var center = {
@@ -34,6 +52,8 @@ $(document).ready(function() {
     //This should be done in the initialize function
     $("#calculate").click(function() {
         initialize();
+        addr1 = $("#startaddress").val();
+        addr2 = $("#endaddress").val();
         placeMarkers();
         calcRoute();
         calculateDistances();
@@ -52,6 +72,8 @@ $(document).ready(function() {
         geocoder = new google.maps.Geocoder();
         directionsDisplay.setMap(map);
         mode = "DRIVING";
+        addr1 = "";
+        addr2 = "";
     }
 
     function placeMarkers() {
@@ -139,13 +161,14 @@ $(document).ready(function() {
 
 //
 //$(document).ready(function() {
+
     $('#fullpage').fullpage({
         //Navigation
         menu: false,
-       // anchors:['firstSlide', 'secondSlide'],
+        anchors:['1', '2','3','4'],
         navigation: false,
         navigationPosition: 'right',
-       // navigationTooltips: ['firstSlide', 'secondSlide'],
+        navigationTooltips: ['firstSlide', 'secondSlide'],
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
 
@@ -171,8 +194,8 @@ $(document).ready(function() {
 
         //Design
         verticalCentered: true,
-        resize : true,
-       sectionsColor : ['#393939', '#393939','#393939','#393939'],
+        resize : false,
+        sectionsColor : ['#393939', '#393939','#393939','#393939'],
         paddingTop: '3em',
         paddingBottom: '10px',
         fixedElements: '#header, .footer',
@@ -190,4 +213,5 @@ $(document).ready(function() {
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
         onSlideLeave: function(anchorLink, index, slideIndex, direction){}
     });
+
 //});

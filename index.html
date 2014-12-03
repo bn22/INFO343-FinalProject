@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+    <link rel="stylesheet" href="css/jquery.fullPage.css" type="text/css" />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
 
@@ -22,26 +23,48 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<a class="navbar-brand" href="#">FinalProject</a>-->
-            <a class="navbar-brand" href="#sectionA">Home</a>
+            <a href="#sectionA" class="navbar-brand" data-menuanchor="1" >Home</a>
 
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav" role="tablist">
-                <!--<li class="active"><a href="#sectionA">Home</a></li>-->
-<!--                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                    </ul>-->
-                <!--</li>-->
-                <li><a href="#MapSection">Calculate Emission</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contactUs">Contact Us</a></li>
+            <ul class="nav navbar-nav" role="tablist" id="myMenu">
+                <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
+                <li data-menuanchor="3"><a href="#about">About Us</a></li>
+                <li data-menuanchor="4"><a href="#tips">Green Tips</a></li>
+                <li data-menuanchor="5"><a href="#contactUs">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="#"><span class="glyphicons glyphicons-user"></span> Sign Up</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+=======
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                        Sign Up <span class="caret"></span></a>
+                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                        <!--<li id="signUp"><a href="#">Sign Up</a></li>-->
+                        <li>
+                            <form name="signUpForm" id="form">
+                                <div class="input-group margin-bottom-sm">
+                                    <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                    <input class="form-control" type="text" id="username" placeholder="Username" required>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                    <input class="form-control"  id="email" type="text" placeholder="Email address" required>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                    <input class="form-control" id="password" type="password" placeholder="Password" required>
+                                </div>
+                                <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="login"><a href="#"><i class="fa fa-user"></i> Login</a></li>
+>>>>>>> c72bf989bb85ac8a12af5cce63a504e69fa63a31
             </ul>
         </div>
     </div>
@@ -49,31 +72,37 @@
 
 
 <div id="fullpage">
-    <div class="section" id="sectionA">
+
+    <!--the home section-->
+    <div class="section" id="sectionA" data-anchor="1">
         <h1>Hello World</h1>
         <h2>Calculate your carbon footprint</h2>
     </div>
-    <div class="section" id="MapSection">
+
+    <!--the map section-->
+    <div class="section" id="mappart" data-anchor="2">
+        <h1>Calculate Emission</h1>
         <div id="map"></div>
         <div class="emission-form">
             <form role="form">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Start Address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="startaddress">Start Address</label>
+                    <input type="text" class="form-control" id="startaddress" placeholder="Enter Your 1st Destination" required>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Destination Address</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="endaddress">Destination Address</label>
+                    <input type="text" class="form-control" id="endaddress" placeholder="Enter Your 2nd Destination" required>
                 </div>
-                <button type="submit"  id="calulate" class="btn btn-default">Calculate</button>
+                <button type="submit"  id="calculate" class="btn btn-default">Calculate</button>
             </form>
             <div id="outputDiv"></div>
             <div id="emissions"></div>
         </div>
     </div>
-    <div class="section sectionB">
 
-        <div class="slide" id="aboutSlide">
+    <!--about us section-->
+    <div class="section sectionB" id="about" data-anchor="3">
+        <div class="slide" id="aboutSlide" data-anchor="slide1">
             <h1>About us</h1>
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
             <h1>Mission</h1><p> Raise awareness of carbon emission and what we can do to reduce it.<br>
@@ -81,32 +110,81 @@
             <br/>
         </div>
 
-        <div class="slide">
+        <div class="slide" data-anchor="slide2">
             <h1>Why worry about carbon emission?</h1>
 
             <br/>
             <li>Is the primary greenhouse gas emitted through human activities</li>
+            <br/>
             <li> Traps heat into the atmosphere</li>
+            <br/>
             <li>Alters local climate temperatures which affects forests, crop yields, and water supplies</li>
             <br/>
         </div>
 
-        <div class="slide">
+        <div class="slide" data-anchor="slide3">
             <h1>Why worry about carbon emission from transportation?</h1>
             <br/>
             <li>Transportation accounts for 32% of total U.S. emissions</li>
+            <br/>
             <li> Amount of CO2 that one gallon of gas produces: 19.4 pounds</li>
+            <br/>
             <li>The number of vehicle miles traveled by passenger cars has increased by 35% from 1990-2012</li>
+            <br/>
             <li>The average passenger car in the United States produces just under 1 pound of carbon dioxide per mile traveled.</li>
         </div>
 
     </div>
+    <!--Tips section -->
+    <div class="section" id="tips">
+        <h1>Green Tips</h1>
+        <h2>Tips to Make Commuting more Eco-Friendly</h2>
+        <br/>
+        <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-4">
+                     <img src="img/icons/bike.png" alt="Bike"/>
+                     <h4>Biking</h4>
+                 </div>
+                 <div class="col-md-4">
+                     <img src="img/icons/cart.png" alt="cart"/>
+                     <h4>Weekend Shopping</h4>
+                 </div>
+                 <div class="col-md-4">
+                     <img src="img/icons/bus.png" alt="bus"/>
+                     <h4>Bus & Carpool</h4>
+                 </div>
+             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/icons/car.png" alt="car"/>
+                    <h4>If you own a car:</h4>
+                    <p>
+                    Invest in a low CO2 emission car – diesel engines & electric hybrid vehicles
+                    Maintain your car properly and keep to the speed limit to ensure fuel efficiency
+                    If you wait longer than 30 seconds, turn off the car engine
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/icons/flight.png" alt="flight"/>
+                    <h4>Reduce flights</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Contacts Us section-->
     <div class="section" id="contactUs">Contact Us</div>
+
 </div>
 
 
 <script src="js/jquery.fullPage.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?"></script>
+<script src="https://maps.googleapis.com/maps/api/js?AIzaSyBgzUNQS01Vz-WA99PbgVzTFfKJZzAP3N0"></script>
+<script src="http://www.parsecdn.com/js/parse-1.3.2.min.js"></script>
+<script>Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");</script>
 <script src="js/app.js"></script>
 
 </body>

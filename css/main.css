@@ -1,6 +1,10 @@
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
 
+.section{
+    text-align: center;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -29,11 +33,25 @@ h6 {
     opacity: 0.9;
 }
 
+#MapSection{
+    color:#fff;
+}
+
+#form {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#submit {
+    margin-top: 0.5em;
+}
+
 #sectionA {
     background:url(../img/bg1.jpg)center top no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
+
 }
 
 .sectionB{
@@ -41,19 +59,33 @@ h6 {
     /*background: #23527c;*/
     text-align: center;
     font-size: 150%;
+
+}
+
+#mappart{
+    color:#fff;
+    text-align: center;
 }
 .slide{
     padding-left: 5%;
     padding-right: 5%;
+    color: #fff
 }
 
 .sectionB p {
     color: #eee;
 }
 
+#tips{
+    color: #FFFFFF;
+}
+
+.row{
+    padding-top:20px ;
+}
 
 
-#sectionA h1, #aboutSlide h1{
+#sectionA h1, .slide h1 , #MapSection h1,  #tips h1{
     color: #FFF;
     text-shadow: none;
     font-size: 60px;
@@ -84,4 +116,3 @@ h6 {
     margin-right: 30%;
     margin-bottom: 1em;
 }
-
