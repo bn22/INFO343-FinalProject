@@ -1,36 +1,80 @@
-/**
- * Created by marcocheng on 11/26/14.
- */
-$(document).ready(function() {
+
+Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");
+
+$(document).ready(function () {
+    currentUser = Parse.User.current();
+    if (currentUser == null) {
+        $('#signUp').show();
+        $('#logIn').show();
+        $('#display').hide();
+        $('#logout').hide();
+    } else {
+        $('#signUp').hide();
+        $('#logIn').hide();
+        $('#display').show();
+        $('#logout').show();
+        $('#userDisplay').text(currentUser.attributes.username);
+        $('#display').click(function() {
+            window.location = "account.html";
+        });
+    }
+
+    $('#logout').click(function () {
+        Parse.User.logOut();
+        window.location = "index.html";
+    });
 
 
-    $('#submit').click(function() {
-        var carbonEmission = Parse.Object.extend("CO2Emissions");
-        var CO2 =new carbonEmission();
-        CO2.set("Username", $('#username').val()) ;
-        CO2.set("Password", $('#password').val());
-        CO2.set("Email", $('#email').val());
-        CO2.save(null, {
-            success: function() {
-                alert('it works!');
-            },
-            error: function(CO2, error) {
-                console.log(error.message);
+
+
+    $('#submit').click(function () {
+        var user = new Parse.User();
+        user.set("username", $('#username').val());
+        user.set("password", $("#password").val());
+        user.set("email", $('#email').val());
+        user.signUp(null, {
+            success: function (user) {
+                alert('You have successfully made an EcoCommuter account');
+                Parse.User.logIn($('#username').val(), $("#password").val(), {
+                    success: function (user) {
+                        window.location = "account.html";
+                        var currentUser = Parse.User.current();
+                        $('#uName').text(currentUser.attributes.username);
+
+                    }
+                });
             }
         });
     });
 
+    $("#loginsubmit").click(function () {
+        Parse.User.logIn($('#loginusername').val(), $("#loginpassword").val(), {
+            success: function (user) {
+                window.location = "account.html";
+                var currentUser = Parse.User.current();
+                $('#uName').text(currentUser.attributes.username);
+            },
+            error: function (user, error) {
+                alert('Wrong Password. Please Try Again')
+            }
+        })
+    });
+
+
     $('body').scrollspy({ target: '.navbar-custom' });
 
+
+    function sendMail() {
+        var link = "mailto:mkpc@uw.edu"
+                + "&subject=" + escape("This is my subject")
+                + "&body=" + escape(document.getElementById('message').value)
+            ;
+        window.location.href = link;
+    }
 
     $('[data-spy="scroll"]').each(function () {
         var $spy = $(this).scrollspy('refresh')
     });
-
-//    $(document).ready(function() {
-//        $('#fullpage').fullpage();
-//
-//    });
 
     var map;
     var geocoder;
@@ -39,6 +83,8 @@ $(document).ready(function() {
     var addr1;
     var addr2;
     var mode;
+    var distance;
+    var value;
     var mapElem = document.getElementById('map');
     var center = {
         lat: 47.6,
@@ -104,18 +150,13 @@ $(document).ready(function() {
 
     function calcRoute() {
         var travel;
-        //console.log(mode);
         if(mode == "DRIVING" || mode == "CARPOOL") {
-            console.log("DRIVING/CARPOOL");
             travel = google.maps.TravelMode.DRIVING;
         } else if (mode == "BIKE")  {
-            console.log("BIKE");
             travel = google.maps.TravelMode.BICYCLING;
         } else if(mode == "TRANSIT") {
-            console.log("TRANSIT");
             travel = google.maps.TravelMode.TRANSIT;
         } else {
-            console.log("WALK");
             travel = google.maps.TravelMode.WALKING;
         }
 
@@ -135,15 +176,13 @@ $(document).ready(function() {
         var travel;
         console.log(mode);
         if(mode == "DRIVING" || mode == "CARPOOL" || mode == "TRANSIT") {
-            console.log("DRIVING/CARPOOL/TRANSIT");
             travel = google.maps.TravelMode.DRIVING;
         } else if (mode =="WALK"){
-            console.log("WALKING");
             travel = google.maps.TravelMode.WALKING;
         } else {
-            console.log("BIKE");
             travel = google.maps.TravelMode.BICYCLING;
         }
+
         var service = new google.maps.DistanceMatrixService();
         service.getDistanceMatrix ({
             origins: [addr1],
@@ -171,6 +210,7 @@ $(document).ready(function() {
                         + ': ' + results[j].distance.text + ' in '
                         + results[j].duration.text + '<br>';
                     calculateEmissions(results[j].distance.value);
+                    distance = results[j].distance.text;
                 }
             }
         }
@@ -188,22 +228,37 @@ $(document).ready(function() {
             result = 0.0;
         }
         var total = (result / 1609.344);
-        var value = total.toFixed(2);
+        value = total.toFixed(2);
         var emissions = document.getElementById('emissions');
         emissions.innerHTML = "You released " + value + " pounds of carbon emissions into the environment!";
+
+        var data = Parse.Object.extend("emissionData");
+        var emissionData = new data();
+        emissionData.set("StartAddress", $("#startaddress").val());
+        emissionData.set("DestinationAddress", $("#endaddress").val());
+        emissionData.set("DistancedTraveled", distance);
+        emissionData.set("Emissions", value);
+        emissionData.set("transportationMode", mode);
+        console.log(mode);
+        emissionData.set("Username", currentUser.attributes.username);
+        emissionData.save(null, {
+            success: function () {
+                console.log('it worked!');
+            },
+            error: function (emissionData, error) {
+                console.log(error.message);
+            }
+        });
     }
 });
-
-//
-//$(document).ready(function() {
-
+    //full page
     $('#fullpage').fullpage({
         //Navigation
         menu: '#menu',
         anchors:['1', '2','3','4'],
         navigation: false,
         navigationPosition: 'right',
-        navigationTooltips: ['firstSlide', 'secondSlide'],
+        //navigationTooltips: ['firstSlide', 'secondSlide'],
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
 
@@ -229,7 +284,7 @@ $(document).ready(function() {
 
         //Design
         verticalCentered: true,
-        resize : true,
+        resize : false,
 
         sectionsColor : ['#393939', '#393939','#393939','#393939','#393939','#393939'],
 
@@ -250,5 +305,3 @@ $(document).ready(function() {
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
         onSlideLeave: function(anchorLink, index, slideIndex, direction){}
     });
-
-//});
