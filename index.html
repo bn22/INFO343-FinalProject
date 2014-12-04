@@ -273,7 +273,7 @@
                                 <div class="form-group">
                                     <label for="name">
                                         Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                    <input type="text" class="form-control" id="contactname" placeholder="Enter name"
                                            required="required"/>
                                 </div>
                                 <div class="form-group">
@@ -283,11 +283,11 @@
                                     <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                        <input type="email" class="form-control" id="contactemail" placeholder="Enter email"
                                                required="required"/></div>
                                     <div>
                                         <br/>
-                                        <button class="btn btn-skin pull-left" onclick="sendMail(); return false">
+                                        <button class="btn btn-skin pull-left" id="sendMail" onclick="sendMail(); return false">
                                             Send Message
                                         </button>
                                         <br/>

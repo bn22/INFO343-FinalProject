@@ -1,4 +1,3 @@
-
 Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");
 
 $(document).ready(function () {
@@ -14,7 +13,7 @@ $(document).ready(function () {
         $('#display').show();
         $('#logout').show();
         $('#userDisplay').text(currentUser.attributes.username);
-        $('#display').click(function() {
+        $('#display').click(function () {
             window.location = "account.html";
         });
     }
@@ -23,8 +22,6 @@ $(document).ready(function () {
         Parse.User.logOut();
         window.location = "index.html";
     });
-
-
 
 
     $('#submit').click(function () {
@@ -61,7 +58,7 @@ $(document).ready(function () {
     });
 
 
-    $('body').scrollspy({ target: '.navbar-custom' });
+    $('body').scrollspy({target: '.navbar-custom'});
 
 
     function sendMail() {
@@ -71,6 +68,23 @@ $(document).ready(function () {
             ;
         window.location.href = link;
     }
+
+    /*$('sendMail#').click(function() {
+        var Contact = Parse.Object.extend("contactUs");
+        var contact = new Contact();
+        contact.set("Name", $('#contactname').val());
+        contact.set("Email Address", $('#contactemail').val());
+        contact.set("Message", $('#message').val());
+        contact.save(null, {
+            success: function () {
+                alert('Your Message Has Been Saved')
+            },
+            error: function (emissionData, error) {
+                console.log(error.message);
+            }
+        });
+     });*/
+
 
     $('[data-spy="scroll"]').each(function () {
         var $spy = $(this).scrollspy('refresh')
@@ -83,7 +97,7 @@ $(document).ready(function () {
     var addr1;
     var addr2;
     var mode;
-    var distance ;
+    var distance;
     var value;
     var mapElem = document.getElementById('map');
     var center = {
@@ -95,13 +109,13 @@ $(document).ready(function () {
         zoom: 12
     });
 
-    $("#calculate").click(function() {
+    $("#calculate").click(function () {
         initialize();
         addr1 = $("#startaddress").val();
         addr2 = $("#endaddress").val();
         mode = $('input[name="options"]:checked').val();
-        if(mode == undefined) {
-            mode="DRIVING";
+        if (mode == undefined) {
+            mode = "DRIVING";
         }
         placeMarkers();
         calcRoute();
@@ -126,7 +140,7 @@ $(document).ready(function () {
     }
 
     function placeMarkers() {
-        geocoder.geocode({address: addr1}, function(results, status) {
+        geocoder.geocode({address: addr1}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var coords = results[0].geometry.location;
                 var marker = new google.maps.Marker({
@@ -136,7 +150,7 @@ $(document).ready(function () {
             }
 
         });
-        geocoder.geocode({address: addr2}, function(results, status) {
+        geocoder.geocode({address: addr2}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var coords = results[0].geometry.location;
                 var marker = new google.maps.Marker({
@@ -150,23 +164,23 @@ $(document).ready(function () {
 
     function calcRoute() {
         var travel;
-        if(mode == "DRIVING" || mode == "CARPOOL") {
+        if (mode == "DRIVING" || mode == "CARPOOL") {
             travel = google.maps.TravelMode.DRIVING;
-        } else if (mode == "BIKE")  {
+        } else if (mode == "BIKE") {
             travel = google.maps.TravelMode.BICYCLING;
-        } else if(mode == "TRANSIT") {
+        } else if (mode == "TRANSIT") {
             travel = google.maps.TravelMode.TRANSIT;
         } else {
             travel = google.maps.TravelMode.WALKING;
         }
 
         var request = {
-            origin:addr1,
+            origin: addr1,
             destination: addr2,
             travelMode: travel
         };
-        directionsService.route(request, function(response, status) {
-            if(status == google.maps.DirectionsStatus.OK) {
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
             }
         });
@@ -175,16 +189,16 @@ $(document).ready(function () {
     function calculateDistances() {
         var travel;
         console.log(mode);
-        if(mode == "DRIVING" || mode == "CARPOOL" || mode == "TRANSIT") {
+        if (mode == "DRIVING" || mode == "CARPOOL" || mode == "TRANSIT") {
             travel = google.maps.TravelMode.DRIVING;
-        } else if (mode =="WALK"){
+        } else if (mode == "WALK") {
             travel = google.maps.TravelMode.WALKING;
         } else {
             travel = google.maps.TravelMode.BICYCLING;
         }
 
         var service = new google.maps.DistanceMatrixService();
-        service.getDistanceMatrix ({
+        service.getDistanceMatrix({
             origins: [addr1],
             destinations: [addr2],
             travelMode: travel,
@@ -207,8 +221,8 @@ $(document).ready(function () {
                 var results = response.rows[i].elements;
                 for (var j = 0; j < results.length; j++) {
                     outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
-                        + ': ' + results[j].distance.text + ' in '
-                        + results[j].duration.text + '<br>';
+                    + ': ' + results[j].distance.text + ' in '
+                    + results[j].duration.text + '<br>';
                     calculateEmissions(results[j].distance.value);
                     distance = results[j].distance.text;
                 }
@@ -218,11 +232,11 @@ $(document).ready(function () {
 
     function calculateEmissions(distance) {
         var result = 0;
-        if(mode == "DRIVING") {
+        if (mode == "DRIVING") {
             result = (0.96 * distance);
-        } else if(mode == "TRANSIT") {
+        } else if (mode == "TRANSIT") {
             result = (0.64 * distance);
-        } else if(mode == "CARPOOL") {
+        } else if (mode == "CARPOOL") {
             result = (0.96 * distance);
         } else {
             result = 0.0;
@@ -236,7 +250,7 @@ $(document).ready(function () {
         var emissionData = new data();
         emissionData.set("StartAddress", $("#startaddress").val());
         emissionData.set("DestinationAddress", $("#endaddress").val());
-        emissionData.set("DistancedTraveled", (Math.floor(distance*0.0621371)/100));
+        emissionData.set("DistancedTraveled", (Math.floor(distance * 0.0621371) / 100));
 
         emissionData.set("Emissions", value);
         emissionData.set("transportationMode", mode);
@@ -252,64 +266,64 @@ $(document).ready(function () {
     }
 });
 $('#fullpage').fullpage({
-    sectionsColor : ['#393939', '#393939','#393939','#393939','#393939','#393939'],
+    sectionsColor: ['#393939', '#393939', '#393939', '#393939', '#393939', '#393939'],
     slidesNavigation: true,
     slidesNavPosition: 'bottom',
     scrollingSpeed: 700,
     autoScrolling: true,
-    resize:false
+    resize: false
 
 });
-    //full page
-    //$('#fullpage').fullpage({
-    //    //Navigation
-    //    //menu: '#menu',
-    //    //anchors:['1', '2','3','4'],
-    //    navigation: false,
-    //    navigationPosition: 'right',
-    //    //navigationTooltips: ['firstSlide', 'secondSlide'],
+//full page
+//$('#fullpage').fullpage({
+//    //Navigation
+//    //menu: '#menu',
+//    //anchors:['1', '2','3','4'],
+//    navigation: false,
+//    navigationPosition: 'right',
+//    //navigationTooltips: ['firstSlide', 'secondSlide'],
 
-    //
-    //    //Scrolling
-    //    css3: true,
-    //    scrollingSpeed: 700,
-    //    autoScrolling: true,
-    //    scrollBar: false,
-    //    easing: 'easeInQuart',
-    //    easingcss3: 'ease',
-    //    loopBottom: false,
-    //    loopTop: false,
-    //    loopHorizontal: true,
-    //    continuousVertical: false,
-    //    normalScrollElements: '#element1, .element2',
-    //    scrollOverflow: false,
-    //    touchSensitivity: 15,
-    //    normalScrollElementTouchThreshold: 5,
-    //
-    //    //Accessibility
-    //    keyboardScrolling: true,
-    //    animateAnchor: true,
-    //
-    //    //Design
-    //    verticalCentered: true,
-    //    resize : false,
-    //
-    //    sectionsColor : ['#393939', '#393939','#393939','#393939','#393939','#393939'],
-    //
-    //    paddingTop: '3em',
-    //    paddingBottom: '10em',
-    //    fixedElements: '#header, .footer',
-    //    responsive: 0,
-    //
-    //    //Custom selectors
-    //    sectionSelector: '.section',
-    //    slideSelector: '.slide',
-    //
-    //    //events
-    //    onLeave: function(index, nextIndex, direction){},
-    //    afterLoad: function(anchorLink, index){},
-    //    afterRender: function(){},
-    //    afterResize: function(){},
-    //    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
-    //    onSlideLeave: function(anchorLink, index, slideIndex, direction){}
-    //});
+//
+//    //Scrolling
+//    css3: true,
+//    scrollingSpeed: 700,
+//    autoScrolling: true,
+//    scrollBar: false,
+//    easing: 'easeInQuart',
+//    easingcss3: 'ease',
+//    loopBottom: false,
+//    loopTop: false,
+//    loopHorizontal: true,
+//    continuousVertical: false,
+//    normalScrollElements: '#element1, .element2',
+//    scrollOverflow: false,
+//    touchSensitivity: 15,
+//    normalScrollElementTouchThreshold: 5,
+//
+//    //Accessibility
+//    keyboardScrolling: true,
+//    animateAnchor: true,
+//
+//    //Design
+//    verticalCentered: true,
+//    resize : false,
+//
+//    sectionsColor : ['#393939', '#393939','#393939','#393939','#393939','#393939'],
+//
+//    paddingTop: '3em',
+//    paddingBottom: '10em',
+//    fixedElements: '#header, .footer',
+//    responsive: 0,
+//
+//    //Custom selectors
+//    sectionSelector: '.section',
+//    slideSelector: '.slide',
+//
+//    //events
+//    onLeave: function(index, nextIndex, direction){},
+//    afterLoad: function(anchorLink, index){},
+//    afterRender: function(){},
+//    afterResize: function(){},
+//    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+//    onSlideLeave: function(anchorLink, index, slideIndex, direction){}
+//});

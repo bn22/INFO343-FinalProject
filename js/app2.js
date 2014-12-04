@@ -47,33 +47,37 @@ $(document).ready(function () {
             $('#email').text(currentUser.attributes.email);
         });
 
-    $('#reset').click(function () {
-        bootbox.confirm("Are you sure to erase all your record?", function (result) {
-            if(result){
-                var EmissionQuery = Parse.Object.extend("emissionData");
-                var query = new Parse.Query(EmissionQuery);
-                query.find({
-                    success: function (results) {
-                        $(results).each(function (i, e) {
-                            var q = e.toJSON();
-                            var id = q.objectId;
-                            query.get(id, {
-                                success: function (myObj) {
-                                    // The object was retrieved successfully.
-                                    myObj.destroy({});
-                                    window.location = "account.html";
-                                },
-                                error: function (object, error) {
-                                    // The object was not retrieved successfully.
-                                    // error is a Parse.Error with an error code and description.
-                                }
+        $('#reset').click(function () {
+            bootbox.confirm("Are you sure to erase all your record?", function (result) {
+                if (result) {
+                    var EmissionQuery = Parse.Object.extend("emissionData");
+                    var query = new Parse.Query(EmissionQuery);
+                    query.find({
+                        success: function (results) {
+                            $(results).each(function (i, e) {
+                                var q = e.toJSON();
+                                var id = q.objectId;
+                                query.get(id, {
+                                    success: function (myObj) {
+                                        // The object was retrieved successfully.
+                                        myObj.destroy({});
+                                        //window.location = "account.html";
+                                    },
+                                    error: function (object, error) {
+                                        // The object was not retrieved successfully.
+                                        // error is a Parse.Error with an error code and description.
+                                    }
+                                });
                             });
-                        });
-                    }
-                })
-            }
+                        }
+                    })
+                }
+            });
         });
-    });
+
+        $('#refresh').click(function() {
+            window.location = "account.html";
+        });
 
         $("#rePassword").click(function () {
             $('#resetPassword').show();
