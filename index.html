@@ -11,8 +11,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--<body id="page-top" data-spy="scroll" data-target=".navbar-custom">-->
+<body id="page-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu">
     <div class="container">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -20,22 +21,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#sectionA" class="navbar-brand" data-menuanchor="1" >EcoCommuter</a>
+            <a href="#1" class="navbar-brand" data-menuanchor="1" >EcoCommuter</a>
 
         </div>
-        <div class="collapse navbar-collapse  navbar-main-collapse" id="myNavbar">
-            <ul class="nav navbar-nav" role="tablist" id="myMenu">
-                <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
-                <li data-menuanchor="3"><a href="#about">About Us</a></li>
-                <li data-menuanchor="4"><a href="#tips">Green Tips</a></li>
-                <li data-menuanchor="5"><a href="#contact">Contact Us</a></li>
+        <div class="collapse navbar-collapse  navbar-main-collapse">
+            <ul class="nav navbar-nav" role="tablist">
+                <li data-menuanchor="2"><a href="#2">Calculate Emission</a></li>
+                <li data-menuanchor="3"><a href="#3">About Us</a></li>
+                <li data-menuanchor="4"><a href="#4">Green Tips</a></li>
+                <li data-menuanchor="5"><a href="#5">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li id="display"><a href="account.html"><span  id="userDisplay"></span></a></li>
-                <li id="logout"><a href="index.html">Log Out</a></li>
+                <li id="display"><a href="account.html"><i class="fa fa-user"></i><span  id="userDisplay"></span></a></li>
+                <li id="logout"><a href="index.html"><i class="fa fa-sign-out"></i>Log Out</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#" id="signUp">
-                        Sign Up <span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#" id="signUp"><i class="fa fa-pencil-square-o"></i>
+                        Sign Up </a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li>
                             <form name="signUpForm" id="form">
@@ -88,7 +89,6 @@
         <h1>Calculate Emission</h1>
         <div class="container">
             <div class="emission-form">
-
                 <div id="map"></div>
                 <div class="row">
                     <div class="col-md-4 col-lg-4" id="instructions">
@@ -126,7 +126,7 @@
 
     <!--about us section-->
     <div class="section sectionB" id="about" data-anchor="3">
-        <div class="slide" id="aboutSlide" data-anchor="slide1">
+        <div class="slide" id="aboutSlide">
             <h1>About us</h1>
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
             <h1>Mission</h1><p> Raise awareness of carbon emission and what we can do to reduce it.<br>
@@ -134,7 +134,7 @@
             <br/>
         </div>
 
-        <div class="slide" data-anchor="slide2">
+        <div class="slide" >
             <h1>Why worry about carbon emission?</h1>
 
             <br/>
@@ -146,7 +146,7 @@
             <br/>
         </div>
 
-        <div class="slide" data-anchor="slide3">
+        <div class="slide">
             <h1>Why worry about carbon emission from transportation?</h1>
             <br/>
             <li>Transportation accounts for 32% of total U.S. emissions</li>
@@ -162,7 +162,7 @@
 
 
     <!--Tips section -->
-    <div class="section" id="tips">
+    <div class="section" id="tips" data-anchor="4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -216,7 +216,7 @@
     <!--Contacts Us section-->
 
 
-    <div class="section" section id="contact" >
+    <div class="section" section id="contact" data-anchor="5" >
         <div class="heading-contact">
             <div class="container">
                 <div class="row">

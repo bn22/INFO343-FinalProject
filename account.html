@@ -13,9 +13,11 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,31 +25,38 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <![endif]-->
 
 </head>
-
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#1" class="navbar-brand" data-menuanchor="1" >EcoCommuter</a>
 
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav" role="tablist">
-            <li class="active"><a href="index.html#sectionA">EcoCommuter</a></li>
-            <li><a href="index.html#mappart">Calculate Emission</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#contactUs">Contact Us</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li id="userNameDisplay"><a href="#"><span class="glyphicon glyphicon-log-in" id="uName"></span></a>
-            </li>
-            <li id="logout"><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
-        </ul>
+        </div>
+        <div class="collapse navbar-collapse  navbar-main-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" role="tablist" id="myMenu">
+                <li data-menuanchor="2"><a href="index.html#2">Calculate Emission</a></li>
+                <li data-menuanchor="3"><a href="index.html#3">About Us</a></li>
+                <li data-menuanchor="4"><a href="index.html#4">Green Tips</a></li>
+                <li data-menuanchor="5"><a href="index.html#5">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="userNameDisplay"><a href="account.html"><i class="fa fa-user"></i><span id="uName"></span></a></li>
+                <li id="logout1"><a href="index.html"><i class="fa fa-sign-out"></i>Log Out</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 <div id="wrapper">
-
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -113,21 +122,6 @@
                                 <input type="email" id="Email4Password" class="form-control"
                                        placeholder="Enter Your Email to Reset Your Password">
                             </div>
-                            <!--                            <div class="form-group">
-                                                            <label for="OldPassword">Old Password</label>
-                                                            <input type="text" id="OldPassword" class="form-control"
-                                                                   placeholder="Enter Your Old Password">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="NewPassword">New Password</label>
-                                                            <input type="text" id="NewPassword" class="form-control"
-                                                                   placeholder="Enter Your New Password">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="ConfirmPassword">Confirm New Password</label>
-                                                            <input type="text" id="ConfirmPassword" class="form-control"
-                                                                   placeholder="Confirm Your Password">
-                                                        </div>-->
                             <div class="form-group">
                                 <button type="button" id="resetPasswordButton">Submit</button>
                             </div>
@@ -140,16 +134,12 @@
 
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <!--
-            <script src="js/bootstrap.min.js"></script>
-        -->
         <script src="js/bootstrap.js"></script>
         <script src="js/jquery.fullPage.js"></script>
         <script src="//www.parsecdn.com/js/parse-1.3.2.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVmMyBekZIbbkVhPtboFc8jQ66yCAs-rY"></script>
         <script src="js/app2.js"></script>
+        <!--<script src="js/app.js"></script>-->
 </body>
 
 </html>

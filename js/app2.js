@@ -30,7 +30,7 @@ $(document).ready(function () {
             })
         }
 
-        $('#logout').click(function () {
+        $('#logout1').click(function () {
             Parse.User.logOut();
             window.location = "index.html";
         });
