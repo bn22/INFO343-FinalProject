@@ -83,7 +83,7 @@ $(document).ready(function () {
     var addr1;
     var addr2;
     var mode;
-    var distance;
+    var distance ;
     var value;
     var mapElem = document.getElementById('map');
     var center = {
@@ -236,7 +236,8 @@ $(document).ready(function () {
         var emissionData = new data();
         emissionData.set("StartAddress", $("#startaddress").val());
         emissionData.set("DestinationAddress", $("#endaddress").val());
-        emissionData.set("DistancedTraveled", distance);
+        emissionData.set("DistancedTraveled", (Math.floor(distance*0.0621371)/100));
+
         emissionData.set("Emissions", value);
         emissionData.set("transportationMode", mode);
         emissionData.set("Username", currentUser.attributes.username);
