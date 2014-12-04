@@ -61,15 +61,15 @@ $(document).ready(function () {
     $('body').scrollspy({target: '.navbar-custom'});
 
 
-    function sendMail() {
+/*    function sendMail() {
         var link = "mailto:mkpc@uw.edu"
                 + "&subject=" + escape("This is my subject")
                 + "&body=" + escape(document.getElementById('message').value)
             ;
         window.location.href = link;
-    }
+    }*/
 
-    /*$('sendMail#').click(function() {
+    $('#sendMail').click(function() {
         var Contact = Parse.Object.extend("contactUs");
         var contact = new Contact();
         contact.set("Name", $('#contactname').val());
@@ -83,7 +83,7 @@ $(document).ready(function () {
                 console.log(error.message);
             }
         });
-     });*/
+     });
 
 
     $('[data-spy="scroll"]').each(function () {
