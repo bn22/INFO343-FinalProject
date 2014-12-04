@@ -256,7 +256,8 @@ $('#fullpage').fullpage({
     slidesNavigation: true,
     slidesNavPosition: 'bottom',
     scrollingSpeed: 700,
-    autoScrolling: true
+    autoScrolling: true,
+    resize:false
 
 });
     //full page
