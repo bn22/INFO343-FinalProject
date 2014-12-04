@@ -164,7 +164,7 @@ $(document).ready(function() {
 
     $('#fullpage').fullpage({
         //Navigation
-        menu: false,
+        menu: '#menu',
         anchors:['1', '2','3','4'],
         navigation: false,
         navigationPosition: 'right',
@@ -194,10 +194,10 @@ $(document).ready(function() {
 
         //Design
         verticalCentered: true,
-        resize : false,
-        sectionsColor : ['#393939', '#393939','#393939','#393939'],
+        resize : true,
+        sectionsColor : ['#393939', '#393939','#393939','#393939','#393939','#393939'],
         paddingTop: '3em',
-        paddingBottom: '10px',
+        paddingBottom: '10em',
         fixedElements: '#header, .footer',
         responsive: 0,
 

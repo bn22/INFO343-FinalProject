@@ -14,9 +14,9 @@
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-<nav class="navbar navbar-inverse  navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -26,12 +26,12 @@
             <a href="#sectionA" class="navbar-brand" data-menuanchor="1" >Home</a>
 
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse  navbar-main-collapse" id="myNavbar">
             <ul class="nav navbar-nav" role="tablist" id="myMenu">
                 <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
                 <li data-menuanchor="3"><a href="#about">About Us</a></li>
                 <li data-menuanchor="4"><a href="#tips">Green Tips</a></li>
-                <li data-menuanchor="5"><a href="#contactUs">Contact Us</a></li>
+                <li data-menuanchor="5"><a href="#contact">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -96,6 +96,22 @@
 
     <!--about us section-->
     <div class="section sectionB" id="about" data-anchor="3">
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 col-lg-offset-2">-->
+                    <!--<div class="section-heading">-->
+                       <!---->
+                        <!--<i class="fa fa-2x fa-angle-down"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-lg-2 col-lg-offset-5">-->
+                    <!--<hr class="marginbot-50">-->
+                    <!--<br>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!---->
+
         <div class="slide" id="aboutSlide" data-anchor="slide1">
             <h1>About us</h1>
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
@@ -129,10 +145,27 @@
         </div>
 
     </div>
+
+
     <!--Tips section -->
     <div class="section" id="tips">
-        <h1>Green Tips</h1>
-        <h2>Tips to Make Commuting more Eco-Friendly</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="section-heading">
+                         <h1>Green Tips</h1>
+                         <h2>Tips to Make Commuting more Eco-Friendly</h2>
+                         <i class="fa fa-2x fa-angle-down"></i>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
         <br/>
         <div class="container-fluid">
              <div class="row">
@@ -155,25 +188,117 @@
                     <img src="img/icons/car.png" alt="car"/>
                     <h4>If you own a car:</h4>
                     <p>
-                    Invest in a low CO2 emission car – diesel engines & electric hybrid vehicles
-                    Maintain your car properly and keep to the speed limit to ensure fuel efficiency
-                    If you wait longer than 30 seconds, turn off the car engine
+                    Diesel engines & electric hybrid vehicles
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img src="img/icons/flight.png" alt="flight"/>
-                    <h4>Reduce flights</h4>
-                </div>
+                    <div class="col-md-2"><img src="img/icons/flight.png" alt="flight"/></div>
+                    <div class="col-md-10"><h4>Reduce flights</h4></div>
 
+                </div>
             </div>
         </div>
     </div>
 
     <!--Contacts Us section-->
-    <div class="section" id="contactUs">Contact Us</div>
+
+
+    <div class="section" section id="contact" >
+        <div class="heading-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                            <div class="section-heading">
+                                <h2>Get in touch</h2>
+                                <i class="fa fa-2x fa-angle-down"></i>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="boxed-grey">
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">
+                                            Email Address</label>
+                                        <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                            <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subject">
+                                            Subject</label>
+                                        <select id="subject" name="subject" class="form-control" required="required">
+                                            <option value="na" selected="">Choose One:</option>
+                                            <option value="service">General Customer Service</option>
+                                            <option value="suggestions">Suggestions</option>
+                                            <option value="product">Product Support</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Message</label>
+                                        <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                                  placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                        Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="widget-contact">
+                        <h5>Web Developer </h5>
+
+                            <p>Hannah Yoo</p>
+                            <p>Bruce Ng</p>
+                            <p>Salla Northup</p>
+                            <p>Marco Cheng</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 
 </div>
 
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <p>&copy;Copyright 2014 - Squad. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="js/jquery.fullPage.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?AIzaSyBgzUNQS01Vz-WA99PbgVzTFfKJZzAP3N0"></script>
@@ -181,5 +306,9 @@
 <script>Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");</script>
 <script src="js/app.js"></script>
 
+
+
 </body>
+
+
 </html>
