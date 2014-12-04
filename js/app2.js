@@ -61,7 +61,7 @@ $(document).ready(function () {
                                     success: function (myObj) {
                                         // The object was retrieved successfully.
                                         myObj.destroy({});
-                                        //window.location = "account.html";
+//                                        window.location = "account.html";
                                     },
                                     error: function (object, error) {
                                         // The object was not retrieved successfully.
