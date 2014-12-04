@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>EcoCommuter</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/jquery.fullPage.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.fullPage.css" type="text/css"/>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--<body id="page-top" data-spy="scroll" data-target=".navbar-custom">-->
+<body id="page-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu">
     <div class="container">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -20,33 +21,38 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#sectionA" class="navbar-brand" data-menuanchor="1" >EcoCommuter</a>
+            <a href="#1" class="navbar-brand" data-menuanchor="1">EcoCommuter</a>
 
         </div>
-        <div class="collapse navbar-collapse  navbar-main-collapse" id="myNavbar">
-            <ul class="nav navbar-nav" role="tablist" id="myMenu">
-                <li data-menuanchor="2"><a href="#mappart">Calculate Emission</a></li>
-                <li data-menuanchor="3"><a href="#about">About Us</a></li>
-                <li data-menuanchor="4"><a href="#tips">Green Tips</a></li>
-                <li data-menuanchor="5"><a href="#contact">Contact Us</a></li>
+        <div class="collapse navbar-collapse  navbar-main-collapse">
+            <ul class="nav navbar-nav" role="tablist">
+                <li data-menuanchor="2"><a href="#2">Calculate Emission</a></li>
+                <li data-menuanchor="3"><a href="#3">About Us</a></li>
+                <li data-menuanchor="4"><a href="#4">Green Tips</a></li>
+                <li data-menuanchor="5"><a href="#5">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li id="display"><a href="account.html"><span  id="userDisplay"></span></a></li>
-                <li id="logout"><a href="index.html">Log Out</a></li>
+                <li id="display"><a href="account.html"><i class="fa fa-user"></i><span id="userDisplay"></span></a>
+                </li>
+                <li id="logout"><a href="index.html"><i class="fa fa-sign-out"></i>Log Out</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#" id="signUp">
-                        Sign Up <span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#" id="signUp"><i
+                            class="fa fa-pencil-square-o"></i>
+                        Sign Up </a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li>
-                            <form name="signUpForm" id="form">
+                            <form name="signUpForm" class="form">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="username" placeholder="Username" required>
+                                    <input class="form-control" type="text" id="username" placeholder="Username"
+                                           required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" id="password" type="password" placeholder="Password" required>
+                                    <input class="form-control" id="password" type="password" placeholder="Password"
+                                           required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control"  id="email" type="email" placeholder="Email address" required>
+                                    <input class="form-control" id="email" type="email" placeholder="Email address"
+                                           required>
                                 </div>
                                 <button class="btn btn-primary" id="submit" type="button">Submit</button>
                             </form>
@@ -58,13 +64,15 @@
                         Log in <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li id="loginForm">
-                            <form name="signUpForm" id="form">
+                            <form name="signUpForm" class="form">
                                 <div class="input-group margin-bottom-sm" id="hide">
                                     <!--<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>-->
-                                    <input class="form-control" type="text" id="loginusername" placeholder="Username" required>
+                                    <input class="form-control" type="text" id="loginusername" placeholder="Username"
+                                           required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" type="password" id="loginpassword" placeholder="Password" required>
+                                    <input class="form-control" type="password" id="loginpassword"
+                                           placeholder="Password" required>
                                 </div>
                                 <button class="btn btn-primary" id="loginsubmit" type="button">Login</button>
                             </form>
@@ -81,37 +89,49 @@
     <!--the home section-->
     <div class="section" id="sectionA" data-anchor="1">
         <h1>EcoCommuter</h1>
+
         <h2>Calculate your carbon footprint</h2>
     </div>
     <!--the map section-->
     <div class="section" id="mappart" data-anchor="2">
         <h1>Calculate Emission</h1>
+
         <div class="container">
             <div class="emission-form">
-
                 <div id="map"></div>
                 <div class="row">
                     <div class="col-md-4 col-lg-4" id="instructions">
                         <p>Calculate your impact on the environment by entering a one way trip and specifying a
-                            mode of travel below. Please enter valid addresses. The calculator will default to driving mode if
+                            mode of travel below. Please enter valid addresses. The calculator will default to driving
+                            mode if
                             there is no transportation mode specified.</p>
-                        </div>
+                    </div>
                     <div class="col-md-8 col-lg-8 text-left">
                         <form role="form">
                             <div class="form-group">
                                 <label for="startaddress">Start Address</label>
-                                <input type="text" class="form-control" id="startaddress" placeholder="Enter Your 1st Destination" required>
+                                <input type="text" class="form-control" id="startaddress"
+                                       placeholder="Enter Your 1st Destination" required>
                             </div>
                             <div class="form-group">
                                 <label for="endaddress">Destination Address</label>
-                                <input type="text" class="form-control" id="endaddress" placeholder="Enter Your 2nd Destination" required>
+                                <input type="text" class="form-control" id="endaddress"
+                                       placeholder="Enter Your 2nd Destination" required>
                             </div>
 
                             <div class="btn-group" data-toggle="buttons" role="group" required>
-                                <button type="button" class="btn btn-primary"><input type="radio" name="options" value="DRIVING" autocomplete="off">Driving</button>
-                                <button type="button" class="btn btn-primary"><input type="radio" name="options" value="TRANSIT" autocomplete="off">Transit</button>
-                                <button type="button" class="btn btn-primary"><input type="radio" name="options" value="WALK" autocomplete="off">Walking</button>
-                                <button type="button" class="btn btn-primary"><input type="radio" name="options" value="BIKE" autocomplete="off">Biking</button>
+                                <button type="button" class="btn btn-primary"><input type="radio" name="options"
+                                                                                     value="DRIVING" autocomplete="off">Driving
+                                </button>
+                                <button type="button" class="btn btn-primary"><input type="radio" name="options"
+                                                                                     value="TRANSIT" autocomplete="off">Transit
+                                </button>
+                                <button type="button" class="btn btn-primary"><input type="radio" name="options"
+                                                                                     value="WALK" autocomplete="off">Walking
+                                </button>
+                                <button type="button" class="btn btn-primary"><input type="radio" name="options"
+                                                                                     value="BIKE" autocomplete="off">Biking
+                                </button>
                             </div>
                             <button type="button" id="calculate" class="btn btn-success">Calculate</button>
                         </form>
@@ -126,15 +146,19 @@
 
     <!--about us section-->
     <div class="section sectionB" id="about" data-anchor="3">
-        <div class="slide" id="aboutSlide" data-anchor="slide1">
+        <div class="slide" id="aboutSlide">
             <h1>About us</h1>
+
             <p>helps track carbon dioxide (CO2) emissions from transportation.</p>
-            <h1>Mission</h1><p> Raise awareness of carbon emission and what we can do to reduce it.<br>
-            Come join us in reducing carbon footprints by commuting more eco-friendly!</p>
+
+            <h1>Mission</h1>
+
+            <p> Raise awareness of carbon emission and what we can do to reduce it.<br>
+                Come join us in reducing carbon footprints by commuting more eco-friendly!</p>
             <br/>
         </div>
 
-        <div class="slide" data-anchor="slide2">
+        <div class="slide">
             <h1>Why worry about carbon emission?</h1>
 
             <br/>
@@ -146,7 +170,7 @@
             <br/>
         </div>
 
-        <div class="slide" data-anchor="slide3">
+        <div class="slide">
             <h1>Why worry about carbon emission from transportation?</h1>
             <br/>
             <li>Transportation accounts for 32% of total U.S. emissions</li>
@@ -155,59 +179,62 @@
             <br/>
             <li>The number of vehicle miles traveled by passenger cars has increased by 35% from 1990-2012</li>
             <br/>
-            <li>The average passenger car in the United States produces just under 1 pound of carbon dioxide per mile traveled.</li>
+            <li>The average passenger car in the United States produces just under 1 pound of carbon dioxide per mile
+                traveled.
+            </li>
         </div>
-
     </div>
 
 
     <!--Tips section -->
-    <div class="section" id="tips">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="section-heading">
-                         <h1>Green Tips</h1>
-                         <h2>Tips to Make Commuting more Eco-Friendly</h2>
-                         <i class="fa fa-2x fa-angle-down"></i>
+    <div class="section" id="tips" data-anchor="4">
+        <div class="heading-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="section-heading">
+                            <h1>Green Tips</h1>
+
+                            <h2>Tips to Make Commuting more Eco-Friendly</h2>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-lg-offset-5">
-                    <hr class="marginbot-50">
-                    <br>
+                <div class="row">
+                    <div class="col-xl-2 col-xl-offset-5">
+                        <hr class="marginbot-50">
+                    </div>
                 </div>
             </div>
         </div>
 
 
         <br/>
+
         <div class="container-fluid">
-             <div class="row">
-                 <div class="col-md-4">
-                     <img src="img/icons/bike.png" alt="Bike"/>
-                     <h4>Biking</h4>
-                 </div>
-                 <div class="col-md-4">
-                     <img src="img/icons/cart.png" alt="cart"/>
-                     <h4>Weekend Shopping</h4>
-                 </div>
-                 <div class="col-md-4">
-                     <img src="img/icons/bus.png" alt="bus"/>
-                     <h4>Bus & Carpool</h4>
-                 </div>
-             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/icons/bike.png" alt="Bike"/>
+                    <h4>Biking</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/icons/cart.png" alt="cart"/>
+                    <h4>Weekend Shopping</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/icons/bus.png" alt="bus"/>
+                    <h4>Bus & Carpool</h4>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md-6">
                     <img src="img/icons/car.png" alt="car"/>
-                    <h4>If you own a car:</h4>
-                    <p>
-                    Diesel engines & electric hybrid vehicles
-                    </p>
+                    <h4>Drive a electric or hybrid vehicles</h4>
                 </div>
                 <div class="col-md-6">
-                     <img src="img/icons/flight.png" alt="flight"/>
-                     <h4>Reduce flights</h4>
+                    <img src="img/icons/flight.png" alt="flight"/>
+                    <h4>Reduce flights</h4>
                 </div>
             </div>
         </div>
@@ -216,69 +243,81 @@
     <!--Contacts Us section-->
 
 
-    <div class="section" section id="contact" >
+    <div class="section" id="contact" data-anchor="5">
         <div class="heading-contact">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                            <div class="section-heading">
-                                <h2>Get in touch</h2>
-                                <i class="fa fa-2x fa-angle-down"></i>
-                            </div>
+                        <div class="section-heading">
+                            <h1>Get in touch</h1>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-2 col-xl-offset-5">
+                        <hr class="marginbot-50">
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-5">
-                    <hr class="marginbot-50">
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-8">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                           required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email Address</label>
 
-                        <form id="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">
-                                            Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">
-                                            Email Address</label>
-                                        <div class="input-group">
+                                    <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                            <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                               required="required"/></div>
+                                    <div>
+                                        <br/>
+                                        <button class="btn btn-skin pull-left" onclick="sendMail(); return false">
+                                            Send Message
+                                        </button>
+                                        <br/>
                                     </div>
+                                </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">
-                                            Message</label>
-                                        <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                                  placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button  class="btn btn-skin pull-right"  onclick="sendMail(); return false">
-                                        Send Message</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Message</label>
+                                    <textarea name="message" id="message" class="form-control" rows="7" cols="25"
+                                              required="required"
+                                              placeholder="Message"></textarea>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-lg-4">
                     <div class="widget-contact">
-                        <h5>Web Developer </h5>
-                            <p>Hannah Yoo</p>
-                            <p>Bruce Ng</p>
-                            <p>Salla Northup</p>
-                            <p>Marco Cheng</p>
+                        <h2>Web Developer </h2>
+
+                        <p>Hannah Yoo</p>
+
+                        <p>Bruce Ng</p>
+
+                        <p>Salla Northup</p>
+
+                        <p>Marco Cheng</p>
                     </div>
                 </div>
             </div>
@@ -287,13 +326,11 @@
 </div>
 
 
-
 <script src="js/jquery.fullPage.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?AIzaSyBgzUNQS01Vz-WA99PbgVzTFfKJZzAP3N0"></script>
 <script src="http://www.parsecdn.com/js/parse-1.3.2.min.js"></script>
 <script>Parse.initialize("D09HDt6HuQzXIeXzkPi5rTLfQ8KMPUBwrORQlbBo", "pmEX9dbQy1YmCb9nw7ekEOko2eSntIMbvr3LgZqV");</script>
 <script src="js/app.js"></script>
-
 
 
 </body>

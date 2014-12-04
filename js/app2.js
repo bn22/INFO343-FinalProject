@@ -30,7 +30,7 @@ $(document).ready(function () {
             })
         }
 
-        $('#logout').click(function () {
+        $('#logout1').click(function () {
             Parse.User.logOut();
             window.location = "index.html";
         });
@@ -47,9 +47,9 @@ $(document).ready(function () {
             $('#email').text(currentUser.attributes.email);
         });
 
-        $('#reset').click(function () {
-            if (window.confirm('Are you sure you want to reset your emission data?')) {
-                //Reset Emission Data from Parse.com
+    $('#reset').click(function () {
+        bootbox.confirm("Are you sure to erase all your record?", function (result) {
+            if(result){
                 var EmissionQuery = Parse.Object.extend("emissionData");
                 var query = new Parse.Query(EmissionQuery);
                 query.find({
@@ -70,11 +70,10 @@ $(document).ready(function () {
                             });
                         });
                     }
-                });
-
+                })
             }
         });
-
+    });
 
         $("#rePassword").click(function () {
             $('#resetPassword').show();
