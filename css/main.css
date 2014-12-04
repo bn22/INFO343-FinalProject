@@ -62,6 +62,14 @@ h6 {
 #mappart{
     color:#fff;
 }
+
+@media (max-width: 768px) {
+    #mappart {
+        height: 0;
+        margin-top: 0;
+    }
+}
+
 #mappart p{
     text-align: left;
 }
