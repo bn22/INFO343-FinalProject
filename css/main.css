@@ -142,7 +142,9 @@ h6 {
     text-shadow: -1px 1px 1px #000;
 }
 
-
+.widget-contact {
+    font-size: 24px;
+}
 
 #calculate {
     margin:1em;
@@ -153,4 +155,12 @@ h6 {
 
 #logout {
     display:none;
+}
+
+#emissions {
+    font-size: 20px;
+}
+
+#instructions {
+    font-size: 18px;
 }

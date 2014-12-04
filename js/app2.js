@@ -9,8 +9,9 @@ $(document).ready(function () {
         getEmissionData();
 
         function getEmissionData() {
-            var Emission = Parse.Object.extend("emissionData");
-            var query = new Parse.Query(Emission);
+            var obj = Parse.Object.extend("emissionData");
+            var query  = new Parse.Query(obj);
+            query.equalTo("Username", currentUser.attributes.username);
             query.find({
                 success: function (results) {
                     $(results).each(function (i, e) {
@@ -52,6 +53,7 @@ $(document).ready(function () {
                 if (result) {
                     var EmissionQuery = Parse.Object.extend("emissionData");
                     var query = new Parse.Query(EmissionQuery);
+                    query.equalTo("Username", currentUser.attributes.username);
                     query.find({
                         success: function (results) {
                             $(results).each(function (i, e) {
