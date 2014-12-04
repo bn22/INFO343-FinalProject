@@ -78,7 +78,12 @@
         <h1>Calculate Emission</h1>
         <div id="map"></div>
         <div class="emission-form">
-            <form role="form">
+            <div class="instructions">
+                <p>Calculate your impact on the environment by entering a one way trip and specifying a
+                    mode of travel below. Please enter valid addresses. The calculator will default to driving mode if
+                    there is no transportation mode specified.</p>
+            </div>
+            <form id= role="form">
                 <div class="form-group">
                     <label for="startaddress">Start Address</label>
                     <input type="text" class="form-control" id="startaddress" placeholder="Enter Your 1st Destination" required>
@@ -87,7 +92,21 @@
                     <label for="endaddress">Destination Address</label>
                     <input type="text" class="form-control" id="endaddress" placeholder="Enter Your 2nd Destination" required>
                 </div>
-                <button type="submit"  id="calculate" class="btn btn-default">Calculate</button>
+                <div class="form-group" data-toggle="buttons" required>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" value="DRIVING" autocomplete="off">Driving
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" value="TRANSIT" autocomplete="off">Transit
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" value="WALK" autocomplete="off">Walking
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" value="BIKE" autocomplete="off">Biking
+                    </label>
+                </div>
+                <button type="button" id="calculate" class="btn btn-default">Calculate</button>
             </form>
             <div id="outputDiv"></div>
             <div id="emissions"></div>
