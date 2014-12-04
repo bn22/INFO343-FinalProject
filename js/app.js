@@ -2,6 +2,8 @@
  * Created by marcocheng on 11/26/14.
  */
 $(document).ready(function() {
+
+
     $('#submit').click(function() {
         var carbonEmission = Parse.Object.extend("CO2Emissions");
         var CO2 =new carbonEmission();
@@ -34,8 +36,6 @@ $(document).ready(function() {
     var geocoder;
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
-//  var addr1 = 'University of Washington, Seattle, WA';
-//  var addr2 = "Seattle University, Seattle, WA";
     var addr1;
     var addr2;
     var mode;
@@ -48,12 +48,15 @@ $(document).ready(function() {
         center: center,
         zoom: 12
     });
-    //We need to set start and end destinations, as well as travel mode.
-    //This should be done in the initialize function
+
     $("#calculate").click(function() {
         initialize();
         addr1 = $("#startaddress").val();
         addr2 = $("#endaddress").val();
+        mode = $('input[name="options"]:checked').val();
+        if(mode == undefined) {
+            mode="DRIVING";
+        }
         placeMarkers();
         calcRoute();
         calculateDistances();
@@ -71,7 +74,7 @@ $(document).ready(function() {
         });
         geocoder = new google.maps.Geocoder();
         directionsDisplay.setMap(map);
-        mode = "DRIVING";
+        mode = "";
         addr1 = "";
         addr2 = "";
     }
@@ -100,10 +103,26 @@ $(document).ready(function() {
     }
 
     function calcRoute() {
+        var travel;
+        //console.log(mode);
+        if(mode == "DRIVING" || mode == "CARPOOL") {
+            console.log("DRIVING/CARPOOL");
+            travel = google.maps.TravelMode.DRIVING;
+        } else if (mode == "BIKE")  {
+            console.log("BIKE");
+            travel = google.maps.TravelMode.BICYCLING;
+        } else if(mode == "TRANSIT") {
+            console.log("TRANSIT");
+            travel = google.maps.TravelMode.TRANSIT;
+        } else {
+            console.log("WALK");
+            travel = google.maps.TravelMode.WALKING;
+        }
+
         var request = {
             origin:addr1,
             destination: addr2,
-            travelMode: google.maps.TravelMode.DRIVING
+            travelMode: travel
         };
         directionsService.route(request, function(response, status) {
             if(status == google.maps.DirectionsStatus.OK) {
@@ -113,11 +132,23 @@ $(document).ready(function() {
     }
 
     function calculateDistances() {
+        var travel;
+        console.log(mode);
+        if(mode == "DRIVING" || mode == "CARPOOL" || mode == "TRANSIT") {
+            console.log("DRIVING/CARPOOL/TRANSIT");
+            travel = google.maps.TravelMode.DRIVING;
+        } else if (mode =="WALK"){
+            console.log("WALKING");
+            travel = google.maps.TravelMode.WALKING;
+        } else {
+            console.log("BIKE");
+            travel = google.maps.TravelMode.BICYCLING;
+        }
         var service = new google.maps.DistanceMatrixService();
         service.getDistanceMatrix ({
             origins: [addr1],
             destinations: [addr2],
-            travelMode: google.maps.TravelMode.DRIVING,
+            travelMode: travel,
             unitSystem: google.maps.UnitSystem.IMPERIAL,
             avoidHighways: false,
             avoidTolls: false
@@ -151,11 +182,15 @@ $(document).ready(function() {
             result = (0.96 * distance);
         } else if(mode == "TRANSIT") {
             result = (0.64 * distance);
+        } else if(mode == "CARPOOL") {
+            result = (0.96 * distance);
+        } else {
+            result = 0.0;
         }
         var total = (result / 1609.344);
         var value = total.toFixed(2);
         var emissions = document.getElementById('emissions');
-        emissions.innerHTML = "Total emissions: " + value;
+        emissions.innerHTML = "You released " + value + " pounds of carbon emissions into the environment!";
     }
 });
 
@@ -194,7 +229,7 @@ $(document).ready(function() {
 
         //Design
         verticalCentered: true,
-        resize : false,
+        resize : true,
         sectionsColor : ['#393939', '#393939','#393939','#393939'],
         paddingTop: '3em',
         paddingBottom: '10px',
