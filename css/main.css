@@ -85,6 +85,10 @@ h6 {
     margin-top: 0.5em;
 }
 
+@media(min-width:768px) {
+    #sectionA
+}
+
 #sectionA {
     background: url(../img/bg1.jpg) center top no-repeat;
     background-size: cover;
@@ -170,10 +174,4 @@ h6 {
 
 #instructions {
     font-size: 18px;
-}
-
-@media (max-width: 768px) {
-    #myNavbar {
-
-    }
 }

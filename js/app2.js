@@ -10,21 +10,25 @@ $(document).ready(function () {
 
         function getEmissionData() {
             var obj = Parse.Object.extend("emissionData");
-            var query  = new Parse.Query(obj);
+            var query = new Parse.Query(obj);
             query.equalTo("Username", currentUser.attributes.username);
             query.find({
                 success: function (results) {
                     $(results).each(function (i, e) {
                         var q = e.toJSON();
-                        var start = q.StartAddress;
-                        var end = q.DestinationAddress;
-                        var distance = q.DistancedTraveled;
-                        var emission = q.Emissions;
-                        var tMode = q.transportationMode;
-                        var user = q.Username;
-                        $('#table tr:last').after("<tr><td>" + start + "</td><td>" + end + "</td><td>" + distance + "</td><td>" + emission + "</td><td>" + tMode + "</td><td>" + user + "</td></tr>");
-                    })
-                },
+                        {
+                            var start = q.StartAddress;
+                            var end = q.DestinationAddress;
+                            var distance = q.DistancedTraveled;
+                            var emission = q.Emissions;
+                            var tMode = q.transportationMode;
+                            var user = q.Username;
+                            $('#table tr:last').after("<tr><td>" + start + "</td><td>" + end + "</td><td>" + distance + "</td><td>" + emission + "</td><td>" + tMode + "</td><td>" + user + "</td></tr>");
+                        }
+                    });
+                }
+
+                ,
                 error: function (error) {
                     console.log(error.message);
                 }
@@ -77,7 +81,7 @@ $(document).ready(function () {
             });
         });
 
-        $('#refresh').click(function() {
+        $('#refresh').click(function () {
             window.location = "account.html";
         });
 

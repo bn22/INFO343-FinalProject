@@ -112,6 +112,10 @@ body {
         padding-left: 250px;
     }
 
+    #ED, #AS {
+        display: none;
+    }
+
     #wrapper.toggled {
         padding-left: 0;
     }
@@ -135,6 +139,14 @@ body {
 
     .navbar{
         border-radius: 0;
+    }
+
+    /*#SA, #DA, #TM, #UN {*/
+        /*display: none;*/
+    /*}*/
+
+    #SA {
+        display: none;
     }
 }
 
