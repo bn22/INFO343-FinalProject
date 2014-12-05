@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav" role="tablist">
                 <li data-menuanchor="2"><a href="#2">Calculate Emission</a></li>
                 <li data-menuanchor="3"><a href="#3">About Us</a></li>
-                <li data-menuanchor="4"><a href="#4">Green Tips</a></li>
+                <li data-menuanchor="4" id="GT"><a href="#4">Green Tips</a></li>
                 <li data-menuanchor="5"><a href="#5">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -118,23 +118,27 @@
                                 <label for="endaddress">Destination Address</label>
                                 <input type="text" class="form-control" id="endaddress"
                                        placeholder="Enter Your 2nd Destination" required>
+                                <br/>
                             </div>
 
                             <div class="btn-group" data-toggle="buttons" role="group" required>
-                                <button type="button" class="btn btn-primary btn-danger"><i class="fa fa-car"></i> <input type="radio" name="options"
+                                <button type="button" class="btn btn-primary btn-danger btn-sm"><i class="fa fa-car"></i> <input type="radio" name="options"
                                                                                      value="DRIVING" autocomplete="off">Driving
                                 </button>
-                                <button type="button" class="btn btn-primary btn-warning"><i class="fa fa-bus"></i> <input type="radio" name="options"
+                                <button type="button" class="btn btn-primary btn-warning btn-sm"><i class="fa fa-bus"></i> <input type="radio" name="options"
                                                                                      value="TRANSIT" autocomplete="off">Transit
                                 </button>
-                                <button type="button" class="btn btn-primary btn-success"><i class="fa fa-paw"></i> <input type="radio" name="options"
+                                <button type="button" class="btn btn-primary btn-success btn-sm"><i class="fa fa-paw"></i> <input type="radio" name="options"
                                                                                      value="WALK" autocomplete="off">Walking
                                 </button>
-                                <button type="button" class="btn btn-primary btn-success"><i class="fa fa-bicycle"></i> <input type="radio" name="options"
+                                <button type="button" class="btn btn-primary btn-success btn-sm"><i class="fa fa-bicycle"></i> <input type="radio" name="options"
                                                                                      value="BIKE" autocomplete="off">Biking
                                 </button>
                             </div>
-                            <button type="button" id="calculate" class="btn btn-primary"><i class="fa fa-calculator"></i> Calculate</button>
+
+
+
+                            <button type="button" id="calculate" class="btn btn-primary btn-sm"><i class="fa fa-calculator"></i> Calculate</button>
                         </form>
                         <div id="outputDiv"></div>
                         <div id="emissions"></div>

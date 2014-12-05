@@ -48,7 +48,6 @@ body {
 }
 
 #page-content-wrapper {
-    
     width: 100%;
     padding: 15px;
 }
@@ -107,8 +106,22 @@ body {
     color: #fff;
     background: none;
 }
+@media(max-width:768px) {
+    .table{
+        font-size: 9px;
+    }
+
+    h1, p{
+        font-size: 9px;
+    }
+
+
+}
+
 
 @media(min-width:768px) {
+
+
     #wrapper {
         padding-left: 250px;
     }
@@ -142,12 +155,17 @@ body {
         border-radius: 0;
     }
 
-    /*#SA, #DA, #TM, #UN {*/
-        /*display: none;*/
-    /*}*/
+    #SA, #DA, #TM, #UN {
+        font-size: 13px;
+        display: none;
+    }
 
     #SA {
         display: none;
+    }
+
+    #message{
+        height: auto;
     }
 }
 

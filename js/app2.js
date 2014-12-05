@@ -35,6 +35,18 @@ $(document).ready(function () {
             })
         }
 
+        $('#ED').click(function() {
+            $('#account').hide();
+            $('#emission').show();
+        });
+
+        $('#AS').click(function() {
+            $('#account').show();
+            $('#emission').hide();
+            $('#username').text(currentUser.attributes.username);
+            $('#email').text(currentUser.attributes.email);
+        });
+
         $('#logout1').click(function () {
             Parse.User.logOut();
             window.location = "index.html";

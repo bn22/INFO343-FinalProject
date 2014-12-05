@@ -61,12 +61,6 @@ h6 {
     color: #fff;
 }
 
-@media (max-width: 768px) {
-    #mappart {
-        height: 0;
-        margin-top: 0;
-    }
-}
 
 #mappart p {
     text-align: left;
@@ -85,9 +79,7 @@ h6 {
     margin-top: 0.5em;
 }
 
-@media(min-width:768px) {
-    #sectionA
-}
+
 
 #sectionA {
     background: url(../img/bg1.jpg) center top no-repeat;
@@ -96,6 +88,7 @@ h6 {
     text-align: center;
 
 }
+
 
 .sectionB {
     background: url(../img/slide.jpg) center top no-repeat;
@@ -174,4 +167,46 @@ h6 {
 
 #instructions {
     font-size: 18px;
+}
+
+
+@media(max-width:768px) {
+
+    #sectionA h1, #sectionA h2{
+        font-size: 150%;
+    }
+    #sectionA{
+        background-attachment: fixed;
+    }
+    #mappart h1, .slide h1, #tips h1{
+        font-size: 24px;
+        margin-top: 2em;
+    }
+    #map{
+        padding-top: 0em;
+        display: none;
+    }
+    #mappart p, .slide li{
+        font-size: 50%;
+    }
+    #mappart .form-group{
+        white-space: normal;
+        margin-bottom: 0em;
+        height: 60%;
+        width: 60%;
+    }
+
+    #tips {
+        display: none;
+    }
+
+    #GT {
+        display: none;
+    }
+
+    #contact h1{
+        display: none;
+    }
+
+
 }
