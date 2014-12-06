@@ -23,9 +23,7 @@ $(document).ready(function () {
         window.location = "index.html";
     });
 
-    $('.nav a').click(function(){
-        $(".navbar-toggle").trigger( "click" );
-    });
+
 
 
 
