@@ -106,6 +106,12 @@ body {
     color: #fff;
     background: none;
 }
+
+
+/*#smalltable{*/
+    /*display: none;*/
+/*}*/
+
 @media(max-width:768px) {
     .table{
         font-size: 9px;
@@ -114,7 +120,28 @@ body {
     h1, p{
         font-size: 9px;
     }
+    #GT{
+        display: none;
+    }
 
+    /*#SA, #DA, #TM, #UN{*/
+        /*font-size: 13px;*/
+        /*display: none;*/
+    /*}*/
+
+
+    /*#bigtable{*/
+        /*display: none;*/
+    /*}*/
+    /*#smalltable{*/
+        /*display: block;*/
+    /*}*/
+
+
+    /*table {*/
+        /*overflow-x: auto;*/
+        /*display: block;*/
+    /*}*/
 
 }
 
@@ -155,14 +182,7 @@ body {
         border-radius: 0;
     }
 
-    #SA, #DA, #TM, #UN {
-        font-size: 13px;
-        display: none;
-    }
 
-    #SA {
-        display: none;
-    }
 
     #message{
         height: auto;

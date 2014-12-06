@@ -23,6 +23,11 @@ $(document).ready(function () {
         window.location = "index.html";
     });
 
+    $('.nav a').click(function(){
+        $(".navbar-toggle").trigger( "click" );
+    });
+
+
 
     $('#submit').click(function () {
         var user = new Parse.User();
